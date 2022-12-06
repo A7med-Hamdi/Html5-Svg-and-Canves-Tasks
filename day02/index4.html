@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .style {
+        height: 150px;
+        width: 150px;
+        background-color: #ddd;
+        margin: 10px;
+      }
+    </style>
+  </head>
+  <body ondrop="drop(event)" ondragover="allowDrop(event)">
+    <div
+      class="style"
+      id="div1"
+      ondrop="drop(event)"
+      ondragover="allowDrop(event)"
+    ></div>
+    <div
+      class="style"
+      id="div2"
+      ondrop="drop1(event)"
+      ondragover="allowDrop(event)"
+    ></div>
+    <br />
+
+    <img
+      id="js"
+      src="./sad.png"
+      draggable="true"
+      ondragstart="drag(event)"
+      width="50px"
+      height="50px"
+    />
+    <img
+      id="html5"
+      src="./smiley.png"
+      draggable="true"
+      ondragstart="drag(event)"
+      width="50px"
+      height="50px"
+    />
+
+    <script>
+      var change = document.getElementById("div1");
+      var change1 = document.getElementById("div2");
+
+      function allowDrop(ev) {
+        ev.preventDefault();
+        change.style.backgroundColor = "#ddd";
+      }
+      // function notallowDrop(ev) {
+      //   ev.preventDefault = false;
+      // }
+
+      function drag(ev) {
+        ev.dataTransfer.setData("draggableID", ev.target.id);
+      }
+
+      function drop(ev) {
+        ev.preventDefault();
+
+        var data = ev.dataTransfer.getData("draggableID");
+
+        ev.target.appendChild(document.getElementById(data));
+        change.style.backgroundColor = "red";
+      }
+
+      function drop1(ev) {
+        ev.preventDefault();
+
+        var data = ev.dataTransfer.getData("draggableID");
+
+        ev.target.appendChild(document.getElementById(data));
+        change1.style.backgroundColor = "blue";
+      }
+    </script>
+  </body>
+</html>

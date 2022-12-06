@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div>
+      <img id="change" src="./sad.png" alt="photo" />
+    </div>
+
+    <script>
+      document.getElementById("change").onmouseover = function () {
+        document.images[0].src = "./smiley.png";
+        document.images[0].style.width = "500px";
+        document.images[0].style.height = "500px";
+      };
+      document.getElementById("change").onmouseout = function () {
+        document.images[0].src = "./sad.png";
+        document.images[0].style.width = "300px";
+        document.images[0].style.height = "300px";
+      };
+    </script>
+  </body>
+</html>
